@@ -1,0 +1,30 @@
+  <head>
+    <style>
+      form, input {
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+        <div class="results" *ngIf="showId">
+          <p>{{name}}<br>
+            {{email}}<br>
+            {{bdate}}<br>
+            {{phone}}</p>
+        </div>
+      <form (submit)="formSubmit()" ngNativeValidate>
+        <div *ngIf="!showId">
+          <label for="nameInput">Name: </label><br>
+          <input name="name" id="nameInput" [(ngModel)]="name"   required/><br>
+          <label for="emailInput">Email: </label><br>
+          <input type="email" name="email" id="emailInput" [(ngModel)]="email"   required/><br>
+          <label for="bdateInput">Birthday: </label><br>
+          <input type="date" name="bdate" id="bdateInput" [(ngModel)]="bdate"   required/><br>
+          <label for="phoneInput">Phone: </label><br>
+          <input type="number" name="phone" id="phoneInput" [(ngModel)]="phone"    required/><br>
+        </div>
+        <input type="submit" value="{{showId ? 'New Person' : 'Submit'}}" /> 
+      </form>
+    </div>
+  </body>
